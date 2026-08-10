@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wrkstack Media — Launch Package for Interior Designers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1C1A17;
+    --paper: #F2ECDF;
+    --laterite: #B5482D;
+    --laterite-dim: #8C3821;
+    --blueprint: #2E4A5C;
+    --brass: #C99A3E;
+    --sage: #6B7A5E;
+    --line: rgba(242,236,223,0.16);
+    --line-dark: rgba(28,26,23,0.14);
+    --max-w: 640px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Source Serif 4', serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+  .mono {
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .display {
+    font-family: 'Big Shoulders Display', sans-serif;
+    text-transform: uppercase;
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+  }
+
+  a { color: inherit; }
+
+  img.placeholder {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/10;
+    background:
+      repeating-linear-gradient(45deg, rgba(242,236,223,0.06) 0 2px, transparent 2px 14px),
+      var(--blueprint);
+    border: 1px solid var(--line);
+  }
+
+  /* Blueprint divider */
+  .plan-rule {
+    position: relative;
+    height: 40px;
+    margin: 8px 0 0;
+    overflow: hidden;
+  }
+  .plan-rule svg { width: 100%; height: 100%; display: block; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 56px 0 40px;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+  }
+  .eyebrow {
+    font-size: 12px;
+    color: var(--brass);
+    font-weight: 500;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: var(--brass);
+    display: inline-block;
+  }
+  h1 {
+    font-size: clamp(36px, 9vw, 52px);
+    font-weight: 800;
+    color: var(--paper);
+  }
+  h1 .accent { color: var(--laterite); }
+  .sub {
+    margin-top: 18px;
+    font-size: 18px;
+    color: rgba(242,236,223,0.78);
+    max-width: 46ch;
+  }
+  .price-tag {
+    margin-top: 22px;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--brass);
+    border: 1px solid rgba(201,154,62,0.4);
+    padding: 8px 14px;
+  }
+  .price-tag b { font-size: 20px; color: var(--paper); }
+
+  .cta-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--laterite);
+    color: var(--paper);
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 18px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 28px;
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+  .cta-btn:hover { background: var(--laterite-dim); }
+  .cta-btn:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+  .cta-sub {
+    text-align: center;
+    font-size: 12px;
+    color: rgba(242,236,223,0.5);
+    margin-top: 10px;
+  }
+
+  /* Scarcity strip */
+  .scarcity {
+    background: var(--blueprint);
+    padding: 12px 0;
+  }
+  .scarcity p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    text-align: center;
+    color: var(--paper);
+    letter-spacing: 0.03em;
+  }
+  .scarcity .dot { color: var(--brass); }
+
+  /* ---------- SECTION SHELL ---------- */
+  section { padding: 52px 0; }
+  section.paper {
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .section-eyebrow {
+    font-size: 11px;
+    color: var(--laterite);
+    margin-bottom: 14px;
+  }
+  .paper .section-eyebrow { color: var(--laterite); }
+  section:not(.paper) .section-eyebrow { color: var(--brass); }
+
+  h2 {
+    font-family: 'Big Shoulders Display', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: clamp(26px, 6.5vw, 34px);
+    line-height: 1.02;
+    margin-bottom: 24px;
+  }
+
+  /* Reality check list */
+  .pain-list { list-style: none; margin-top: 20px; }
+  .pain-list li {
+    display: flex;
+    gap: 14px;
+    padding: 16px 0;
+    border-top: 1px solid var(--line-dark);
+    font-size: 16px;
+  }
+  .pain-list li:last-child { border-bottom: 1px solid var(--line-dark); }
+  .pain-list .mark {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--laterite);
+    font-size: 13px;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  /* NOT / IS blocks */
+  .flip-block {
+    border: 1px solid var(--line);
+    margin-bottom: 18px;
+  }
+  .flip-row {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .flip-not, .flip-is {
+    padding: 18px 20px;
+  }
+  .flip-not {
+    border-bottom: 1px solid var(--line);
+  }
+  .flip-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .flip-not .flip-tag { color: rgba(242,236,223,0.45); }
+  .flip-not p { color: rgba(242,236,223,0.55); text-decoration: line-through; text-decoration-color: rgba(181,72,45,0.5); font-size: 15px; }
+  .flip-is { background: rgba(201,154,62,0.08); }
+  .flip-is .flip-tag { color: var(--brass); }
+  .flip-is p { color: var(--paper); font-size: 15.5px; font-weight: 500; }
+
+  /* Qualification list */
+  .qual-list { counter-reset: qual; margin-top: 22px; }
+  .qual-item {
+    counter-increment: qual;
+    display: flex;
+    gap: 16px;
+    padding: 18px 0;
+    border-top: 1px solid var(--line-dark);
+    align-items: flex-start;
+  }
+  .qual-item:last-child { border-bottom: 1px solid var(--line-dark); }
+  .qual-item::before {
+    content: counter(qual, decimal-leading-zero);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--laterite);
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  /* FAQ */
+  .faq-item {
+    border-top: 1px solid var(--line);
+    padding: 20px 0;
+  }
+  .faq-item:last-child { border-bottom: 1px solid var(--line); }
+  .faq-q {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--brass);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 8px;
+  }
+  .faq-a { font-size: 15.5px; color: rgba(242,236,223,0.82); }
+
+  /* Closing / form */
+  .close-wrap { text-align: center; }
+  .close-wrap h2 { text-align: left; }
+  .form-card {
+    background: var(--ink);
+    border: 1px solid var(--line-dark);
+    padding: 28px 22px;
+    margin-top: 24px;
+    text-align: left;
+  }
+  .form-card.paper-card {
+    background: var(--paper);
+  }
+  label {
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--brass);
+    margin-bottom: 6px;
+    margin-top: 18px;
+  }
+  label:first-of-type { margin-top: 0; }
+  input, select, textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--line);
+    color: var(--paper);
+    font-family: 'Source Serif 4', serif;
+    font-size: 16px;
+    padding: 10px 2px;
+    outline: none;
+  }
+  input:focus, select:focus, textarea:focus { border-bottom-color: var(--brass); }
+  input::placeholder { color: rgba(242,236,223,0.35); }
+  select { color: var(--paper); }
+  select option { background: var(--ink); color: var(--paper); }
+
+  .form-note {
+    font-size: 12px;
+    color: rgba(242,236,223,0.45);
+    margin-top: 24px;
+    text-align: left;
+  }
+
+  .thankyou {
+    display: none;
+    text-align: center;
+    padding: 30px 10px;
+  }
+  .thankyou.show { display: block; }
+  .form-inner.hide { display: none; }
+  .thankyou .mono { color: var(--brass); font-size: 12px; margin-bottom: 10px; }
+  .thankyou p { font-size: 16px; }
+
+  /* Sticky CTA (mobile) */
+  .sticky-cta {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--ink);
+    border-top: 1px solid var(--line);
+    padding: 12px 16px;
+    z-index: 50;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .sticky-cta .price {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--brass);
+    white-space: nowrap;
+  }
+  .sticky-cta a {
+    flex: 1;
+    text-align: center;
+    background: var(--laterite);
+    color: var(--paper);
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 12px 10px;
+    text-decoration: none;
+  }
+  body { padding-bottom: 68px; }
+
+  footer {
+    padding: 30px 0 90px;
+    text-align: center;
+  }
+  footer p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: rgba(242,236,223,0.35);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow mono">Attention Kerala interior design owners</p>
+    <h1>Get your next <span class="accent">signed project</span> through Meta & Google Ads, in 30 days — with our proven Signed Project System.</h1>
+    <p class="sub">No more waiting on the next referral. We build and run the full system — ads, landing page, qualification — and personally handle your calls for the first month so nothing gets fumbled.</p>
+    <div class="price-tag">Month 1 Setup <b>&#8377;15,000</b> <span style="opacity:0.6">one-time · ad spend billed directly to you</span></div>
+    <a href="#apply" class="cta-btn">Apply for a build slot</a>
+    <p class="cta-sub">Takes 2 minutes. We reply within a day.</p>
+  </div>
+</header>
+
+<div class="scarcity">
+  <p class="mono"><span class="dot">&#9679;</span> Only 4 build slots this month — one designer at a time, not mass-produced</p>
+</div>
+
+<!-- BLUEPRINT DIVIDER -->
+<div class="plan-rule" aria-hidden="true">
+  <svg viewBox="0 0 640 40" preserveAspectRatio="none">
+    <line x1="0" y1="20" x2="640" y2="20" stroke="rgba(242,236,223,0.14)" stroke-width="1" stroke-dasharray="2 6"/>
+    <line x1="60" y1="10" x2="60" y2="30" stroke="rgba(242,236,223,0.14)" stroke-width="1"/>
+    <line x1="580" y1="10" x2="580" y2="30" stroke="rgba(242,236,223,0.14)" stroke-width="1"/>
+  </svg>
+</div>
+
+<!-- REALITY CHECK -->
+<section>
+  <div class="wrap">
+    <p class="section-eyebrow mono">The reality check</p>
+    <h2>Here's what's actually happening right now.</h2>
+    <ul class="pain-list">
+      <li><span class="mark mono">01</span><span>Referrals dry up for a month and there's nothing behind them. Feast, then famine, on repeat.</span></li>
+      <li><span class="mark mono">02</span><span>You boosted a post once. Got a dozen messages from people who couldn't afford a consultation, let alone a project.</span></li>
+      <li><span class="mark mono">03</span><span>Leads DM you, you're on-site, you reply two days later. By then they've hired someone who replied in twenty minutes.</span></li>
+      <li><span class="mark mono">04</span><span>You have no idea what any of it actually cost you, because nothing's tracked. Spend goes in, nothing measurable comes out.</span></li>
+      <li><span class="mark mono">05</span><span>Every "digital marketing guy" wants &#8377;35,000 a month before you've closed a single project from ads.</span></li>
+    </ul>
+  </div>
+</section>
+
+<div class="plan-rule" aria-hidden="true">
+  <svg viewBox="0 0 640 40" preserveAspectRatio="none">
+    <line x1="0" y1="20" x2="640" y2="20" stroke="rgba(242,236,223,0.14)" stroke-width="1" stroke-dasharray="2 6"/>
+  </svg>
+</div>
+
+<!-- DIFFERENTIATION -->
+<section>
+  <div class="wrap">
+    <p class="section-eyebrow mono">What this actually is</p>
+    <h2>Not another agency pitch.</h2>
+
+    <div class="flip-block">
+      <div class="flip-row">
+        <div class="flip-not"><span class="flip-tag mono">This is not</span><p>A &#8377;35–40k/month retainer you commit to blind</p></div>
+        <div class="flip-is"><span class="flip-tag mono">This is</span><p>A 30-day system, &#8377;15,000 to build, run on Meta & Google together — proven before you commit to anything bigger</p></div>
+      </div>
+    </div>
+
+    <div class="flip-block">
+      <div class="flip-row">
+        <div class="flip-not"><span class="flip-tag mono">This is not</span><p>A boosted post and a prayer</p></div>
+        <div class="flip-is"><span class="flip-tag mono">This is</span><p>Two platforms, real video ads, and tracking that tells you exactly what's working and what isn't</p></div>
+      </div>
+    </div>
+
+    <div class="flip-block">
+      <div class="flip-row">
+        <div class="flip-not"><span class="flip-tag mono">This is not</span><p>A hundred random leads you have to sort through yourself</p></div>
+        <div class="flip-is"><span class="flip-tag mono">This is</span><p>A qualification step that filters out tire-kickers before they reach your phone</p></div>
+      </div>
+    </div>
+
+    <div class="flip-block">
+      <div class="flip-row">
+        <div class="flip-not"><span class="flip-tag mono">This is not</span><p>An agency juggling fifty clients at once</p></div>
+        <div class="flip-is"><span class="flip-tag mono">This is</span><p>One designer built at a time — four slots a month, on purpose, with me personally handling your calls in month 1</p></div>
+      </div>
+    </div>
+
+    <img class="placeholder" src="" alt="Placeholder — swap with real project or system screenshot" style="margin-top:8px;">
+  </div>
+</section>
+
+<div class="plan-rule" aria-hidden="true">
+  <svg viewBox="0 0 640 40" preserveAspectRatio="none">
+    <line x1="0" y1="20" x2="640" y2="20" stroke="rgba(242,236,223,0.14)" stroke-width="1" stroke-dasharray="2 6"/>
+  </svg>
+</div>
+
+<!-- SCARCITY REPEAT -->
+<div class="scarcity">
+  <p class="mono"><span class="dot">&#9679;</span> Only 4 build slots this month</p>
+</div>
+
+<!-- QUALIFICATION (paper section for contrast/pacing) -->
+<section class="paper">
+  <div class="wrap">
+    <p class="section-eyebrow mono">Apply only if</p>
+    <h2>This works if you're actually ready.</h2>
+    <div class="qual-list">
+      <div class="qual-item"><p>You've completed real projects and have photos to prove it. This isn't for a portfolio that doesn't exist yet.</p></div>
+      <div class="qual-item"><p>You can respond to a new lead within a few hours, not a few days. Speed is most of what makes this work.</p></div>
+      <div class="qual-item"><p>You're able to commit a real ad budget on top of the setup fee — this doesn't work on &#8377;200 a day, and we'll tell you the real number upfront.</p></div>
+      <div class="qual-item"><p>You want signed projects, not just curiosity about what ads cost.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="plan-rule" aria-hidden="true">
+  <svg viewBox="0 0 640 40" preserveAspectRatio="none">
+    <line x1="0" y1="20" x2="640" y2="20" stroke="rgba(28,26,23,0.14)" stroke-width="1" stroke-dasharray="2 6"/>
+  </svg>
+</div>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <p class="section-eyebrow mono">Before you ask</p>
+    <h2>Questions people actually have.</h2>
+
+    <div class="faq-item">
+      <p class="faq-q mono">Do you manage the ads every month after this?</p>
+      <p class="faq-a">Month 1, yes — I personally handle your calls and follow-up so nothing gets fumbled while you learn the rhythm. From month 2, continuing requires moving to a retainer. If you'd rather run it solo after month 1, the system is yours to keep.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q mono">What if I don't get a signed project in 30 days?</p>
+      <p class="faq-a">No one can promise a guaranteed result before a campaign's even live — anyone who does is lying to you. What you get is a real system, built on both platforms, with tracking so you know exactly what's happening. Month 1 is also the algorithm's learning phase — most accounts perform better from month 2 with the same spend, once the system's had time to find your actual buyers.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q mono">How much do I need to spend on ads myself?</p>
+      <p class="faq-a">We'll walk through the real number on the call. It's not padded into the &#8377;15,000 — that goes straight to Meta and Google, not to us. Below a certain spend, the math doesn't work, and we'll tell you that honestly instead of taking your money anyway.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q mono">Why both Meta and Google, not just one?</p>
+      <p class="faq-a">Meta reaches people who don't know they need a designer yet but would respond to the right creative. Google Search catches people actively searching for one right now. Running only one means leaving half the funnel on the table.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q mono">Is &#8377;15,000 really the full setup price, one time?</p>
+      <p class="faq-a">Yes. 50% to start the build, the remaining 50% on delivery. Ad spend is separate and paid by you directly to the platforms.</p>
+    </div>
+  </div>
+</section>
+
+<div class="plan-rule" aria-hidden="true">
+  <svg viewBox="0 0 640 40" preserveAspectRatio="none">
+    <line x1="0" y1="20" x2="640" y2="20" stroke="rgba(242,236,223,0.14)" stroke-width="1" stroke-dasharray="2 6"/>
+  </svg>
+</div>
+
+<!-- CLOSING / FORM -->
+<section id="apply" class="close-wrap">
+  <div class="wrap">
+    <p class="section-eyebrow mono">Apply for a build slot</p>
+    <h2>Get your next signed project through Meta & Google Ads, in 30 days.</h2>
+    <p class="sub" style="max-width:none;">Not word of mouth. Not a boosted post and a prayer. Fill this in and we'll reach out on WhatsApp within a day to confirm fit before anything's booked.</p>
+
+    <div class="form-card">
+      <div class="form-inner" id="formInner">
+        <label for="name">Your name</label>
+        <input type="text" id="name" placeholder="Full name">
+
+        <label for="whatsapp">WhatsApp number</label>
+        <input type="tel" id="whatsapp" placeholder="+91 XXXXX XXXXX">
+
+        <label for="years">How long have you been taking on projects?</label>
+        <select id="years">
+          <option value="">Select one</option>
+          <option>Under 1 year</option>
+          <option>1–2 years</option>
+          <option>2–5 years</option>
+          <option>5+ years</option>
+        </select>
+
+        <label for="source">Where do most of your projects come from today?</label>
+        <select id="source">
+          <option value="">Select one</option>
+          <option>Referrals only</option>
+          <option>Referrals + social media</option>
+          <option>I've run ads before</option>
+          <option>Not sure / just starting to look</option>
+        </select>
+
+        <a href="#" class="cta-btn" id="submitBtn" style="margin-top:26px;">Submit application</a>
+        <p class="form-note">This is an application, not a purchase. We confirm fit on a short call before anything is booked or charged.</p>
+      </div>
+      <div class="thankyou" id="thankyou">
+        <p class="mono">Application received</p>
+        <p>We'll message you on WhatsApp within a day to confirm fit and walk through next steps.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>WRKSTACK MEDIA — KOCHI, KERALA</p>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <span class="price mono">&#8377;15,000</span>
+  <a href="#apply">Apply for a build slot</a>
+</div>
+
+<script>
+  document.getElementById('submitBtn').addEventListener('click', function(e){
+    e.preventDefault();
+    document.getElementById('formInner').classList.add('hide');
+    document.getElementById('thankyou').classList.add('show');
+    // Swap this block for a real submit handler (Systeme.io form action,
+    // Google Form endpoint, or a fetch() call to your CRM webhook)
+    // before this page goes live.
+  });
+</script>
+
+</body>
+</html>
